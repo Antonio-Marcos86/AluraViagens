@@ -4,4 +4,6 @@
     <string name="especiais">Especiais</string>
     <string name="pacotes">Pacotes</string>
     <string name="pagamento">Realizar Pagamento</string>
+    <string name="preco_final">Preço Final:</string>
+    <string name="texto_alerta_cartao">Digite as informações do cartão de crédito que deseja usar para o pagamento</string>
 </resources>
