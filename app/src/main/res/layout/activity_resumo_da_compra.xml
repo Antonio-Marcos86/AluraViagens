@@ -60,7 +60,7 @@
         android:id="@+id/resumo_da_compra_imagem"
         android:scaleType="centerCrop"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="250dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +74,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         tools:text="Foz do Iguaçu"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resumo_da_compra_imagem" />
 
@@ -83,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textSize="14sp"
+        android:textSize="18sp"
         tools:text="18/12 - 19/12 de 2021"
         app:layout_constraintStart_toStartOf="@+id/resumo_da_compra_cidade"
         app:layout_constraintTop_toBottomOf="@+id/resumo_da_compra_cidade" />
@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         tools:text="R$ 243,99"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/resumo_compra_data"
         app:layout_constraintTop_toBottomOf="@+id/resumo_compra_data" />
 </androidx.constraintlayout.widget.ConstraintLayout>

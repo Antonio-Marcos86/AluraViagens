@@ -2,11 +2,13 @@ package antonio.com.br.aluraviagens.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import antonio.com.br.aluraviagens.R;
@@ -15,19 +17,34 @@ import antonio.com.br.aluraviagens.ui.helper.MoedaUtil;
 import antonio.com.br.aluraviagens.ui.helper.ResourcesUtil;
 import antonio.com.br.aluraviagens.ui.model.Pacote;
 
+import static antonio.com.br.aluraviagens.ui.activity.constantes.CHAVE_PACOTE;
+
 public class ResumoDaCompraActivity extends AppCompatActivity {
+
+    public static final String TITULO_APPBAR = "Resumo da compra";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumo_da_compra);
-        setTitle("Resumo da compra");
+        setTitle(TITULO_APPBAR);
+        carregaPacoteRecebido();
 
-        Pacote pacoteFoz = new Pacote("Foz do Iguaçu", "foz_do_iguacu_pr", 1, new BigDecimal(243.99));
-        insereLocalDoPacote(pacoteFoz);
-        mostraPreco(pacoteFoz);
-        InsereDataIdaDataVoltaPacote(pacoteFoz);
-        insereImagemDoPacote(pacoteFoz);
+    }
+
+    private void carregaPacoteRecebido() {
+        Intent intent = getIntent();
+        if(intent.hasExtra(CHAVE_PACOTE)){
+            Pacote pacote = (Pacote) intent.getSerializableExtra(CHAVE_PACOTE);
+            inicializaCampos(pacote);
+        }
+    }
+
+    private void inicializaCampos(Pacote pacote) {
+        insereLocalDoPacote(pacote);
+        mostraPreco(pacote);
+        InsereDataIdaDataVoltaPacote(pacote);
+        insereImagemDoPacote(pacote);
     }
 
     private void insereLocalDoPacote(Pacote pacote) {

@@ -12,7 +12,10 @@ import antonio.com.br.aluraviagens.ui.adapter.ListaPacoteAdapter;
 import antonio.com.br.aluraviagens.ui.dao.PacoteDAO;
 import antonio.com.br.aluraviagens.ui.model.Pacote;
 
+import static antonio.com.br.aluraviagens.ui.activity.constantes.CHAVE_PACOTE;
+
 public class MainActivity extends AppCompatActivity {
+
     private ListView listaDePacotes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,18 +25,24 @@ public class MainActivity extends AppCompatActivity {
         setTitle(getString(R.string.pacotes));
         listaDePacotes= findViewById(R.id.activity_main_listView);
         configuraLista();
-        listaDePacotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                startActivity(new Intent(MainActivity.this,ResumoDoPacoteActivity.class));
-            }
-        });
 
     }
 
     private void configuraLista() {
         List<Pacote> pacotes = new PacoteDAO().lista();
         listaDePacotes.setAdapter(new ListaPacoteAdapter(pacotes,this));
+        listaDePacotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Pacote pacoteClicado = pacotes.get(position);
+                vaiParaResumoPacote(pacoteClicado);
+            }
+        });
+    }
+
+    private void vaiParaResumoPacote(Pacote pacoteClicado) {
+        Intent intent = new Intent(MainActivity.this,ResumoDoPacoteActivity.class);
+        intent.putExtra(CHAVE_PACOTE, pacoteClicado);
+        startActivity(intent);
     }
 }
