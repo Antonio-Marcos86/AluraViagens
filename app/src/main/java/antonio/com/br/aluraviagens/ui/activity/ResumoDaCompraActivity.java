@@ -3,6 +3,8 @@ package antonio.com.br.aluraviagens.ui.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -28,8 +30,14 @@ public class ResumoDaCompraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumo_da_compra);
         setTitle(TITULO_APPBAR);
+        alteraCorDaAppBar();
         carregaPacoteRecebido();
 
+    }
+
+    private void alteraCorDaAppBar() {
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#ffa500"));
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);
     }
 
     private void carregaPacoteRecebido() {
